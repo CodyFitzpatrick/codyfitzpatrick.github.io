@@ -1,0 +1,26 @@
+.wrapper {position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; overflow-y:auto; background-image:url('../img/bg.jpg');background-size:cover;background-position:center center;}
+h1, h2, h3, h4, h5, h6, p {color: #fff;}
+h1 {font-size: 3em; font-weight: 400; text-align: center;}
+p {font-weight: 400; text-align: justify; margin: 5px 0 5px 0;}
+#content-container {margin: 50px auto;}
+#portrait-container {text-align: center;}
+.breaker {margin: 10px 0 10px 0; border-bottom: 2px solid rgba(255,255,255,0.3);}
+.social-links {text-align: center; padding: 20px 10px 10px 10px;}
+.social-links a {display: inline-block;}
+.social-links .email-link {color:#fff; font-size: 0.85em; padding-top: 5px; opacity: 0.5; text-align: center; display: block;}
+.social-links .email-link:hover {opacity: 1;}
+.social-links a i {color: #fff; font-size: 2em; opacity: 0.4; text-align: center;}
+.social-links a i:hover {opacity: 1;}
+.links-to {text-align: center;}
+.links-to a {text-align: center; color: #fff; padding: 5px 0 2.5px 0; border-bottom: 1px #fff dotted; opacity: 0.5;}
+.links-to a:hover {color: #fff; opacity: 1;}
+.in-text {color: #fff; border-bottom: 1px rgba(255,255,255,0.5) dotted;}
+.in-text:hover {color: #fff; border-bottom: 1px rgba(255,255,255,1) dotted;}
+@media only screen and (max-width: 394px) {
+	#portrait-container img {max-width: 250px !important;}	
+}
+@media only screen and (max-width: 767px) {
+	#content-container {margin: 30px auto;}
+	.social-links {padding: 10px 5px 5px 5px !important;}
+	#portrait-container img {max-width: 300px;}
+}
