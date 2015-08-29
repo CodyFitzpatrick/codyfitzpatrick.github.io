@@ -1,3 +1,9 @@
+/** 
+	CUSTOM CSS STYLES FOR
+	codyfitzpatrick.github.io
+	NOTE: I left this stylesheet un-minified for legibility
+**/
+/** Basic Formatting (for elements on all pages) **/
 .wrapper {
 	position: fixed;
 	top: 0px;
@@ -14,9 +20,6 @@
 h1, h2, h3, h4, h5, h6, p {
 	color: #fff;
 }
-body#blog h1, body#blog h2, body#blog h3, body#blog h4, body#blog h5, body#blog h6, body#blog-post h1, body#blog-post h2, body#blog-post h3, body#blog-post h4, body#blog-post h5, body#blog-post h6, body#about-me h1, body#about-me h2, body#about-me h3, body#about-me h4, body#about-me h5, body#about-me h6 {
-	color: #444;
-}
 .bold {
 	font-weight: bold;
 }
@@ -29,20 +32,6 @@ p {
 	font-weight: 400;
 	text-align: justify;
 	margin: 5px 0 5px 0;
-}
-body#blog p {
-	color: #555;
-	font-weight: 400;
-	font-size: 1rem;
-	margin-bottom: 13px;
-	line-height: 1.625em;
-}
-body#blog-post p, body#about-me p {
-	color: #555;
-	font-weight: 400;
-	font-size: 1rem;
-	margin-bottom: 13px;
-	line-height: 1.625em;
 }
 .navbar {
 	background: #fff;
@@ -107,17 +96,6 @@ div.breaker {
     border-bottom: 1px solid #F2F2F2;
     margin: 10px 0px;
 }
-.blog-down.skiplink {
-	background: none;
-}
-.blog-down.skiplink a {
-	background: none;
-    color: rgba(192, 57, 43, 0.7);
-    padding: 50px 0px;
-}
-.blog-spacer {
-    margin-top: 150px;
-}
 #content-container {
 	margin: 50px auto;
 }
@@ -177,6 +155,7 @@ div.breaker {
 	color: #fff;
 	border-bottom: 1px rgba(255,255,255,1) dotted;
 }
+/** About Me Page Customization **/
 p.am-p {
 	font-weight: 400 !important;
 	font-size: 20px !important;
@@ -191,6 +170,35 @@ p.am-p {
 	font-size: 16px;
 	text-align: center;
 	margin: auto;
+}
+/** Blog Page Customization **/
+body#blog h1, body#blog h2, body#blog h3, body#blog h4, body#blog h5, body#blog h6, body#blog-post h1, body#blog-post h2, body#blog-post h3, body#blog-post h4, body#blog-post h5, body#blog-post h6, body#about-me h1, body#about-me h2, body#about-me h3, body#about-me h4, body#about-me h5, body#about-me h6 {
+	color: #444;
+}
+body#blog p {
+	color: #555;
+	font-weight: 400;
+	font-size: 1rem;
+	margin-bottom: 13px;
+	line-height: 1.625em;
+}
+body#blog-post p, body#about-me p {
+	color: #555;
+	font-weight: 400;
+	font-size: 1rem;
+	margin-bottom: 13px;
+	line-height: 1.625em;
+}
+.blog-down.skiplink {
+	background: none;
+}
+.blog-down.skiplink a {
+	background: none;
+    color: rgba(192, 57, 43, 0.7);
+    padding: 50px 0px;
+}
+.blog-spacer {
+    margin-top: 150px;
 }
 .blog-post-title {
 	color: #c0392b;
@@ -217,6 +225,7 @@ body#about-me .blog-head-top {
     text-transform: uppercase;
     padding-bottom: 60px;
 }
+/** Media Queries **/
 @media only screen and (max-width: 394px) {
 	#portrait-container img {
 		max-width: 250px !important;
