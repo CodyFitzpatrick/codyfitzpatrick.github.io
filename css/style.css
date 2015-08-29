@@ -1,7 +1,66 @@
 .wrapper {position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; overflow-y:auto; background-image:url('../img/bg.jpg');background-size:cover;background-position:center center;}
 h1, h2, h3, h4, h5, h6, p {color: #fff;}
+body#blog h1, body#blog h2, body#blog h3, body#blog h4, body#blog h5, body#blog h6 {color: #444;}
 h1 {font-size: 3em; font-weight: 400; text-align: center;}
 p {font-weight: 400; text-align: justify; margin: 5px 0 5px 0;}
+body#blog p {
+	color: #555;
+	
+font-weight: 400;
+font-size: 1rem;
+margin-bottom: 13px;
+line-height: 1.625em;
+}
+.navbar {
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	padding: 10px 0;
+}
+.navbar ul li > a {
+	color: #222;
+	font-weight: 400;
+	text-shadow: none;
+	line-height: 30px;
+	height: 30px;
+	margin: 15px 0;
+}
+.navbar ul li:first-child a {
+	border-right: 2px solid #eee;
+}
+.navbar ul li:last-child a {
+	border-left: 2px solid #eee;	
+}
+.navbar ul li > a:hover {
+	color: #E74C3C;
+	transition: all 0.4s ease 0s;
+}
+.gumby-no-touch .navbar ul li:hover > a, .gumby-touch .navbar ul li.active > a {
+	background: #fff;
+}
+.logo_link {
+    font-size: 30px;
+    color: #E74C3C;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.logo_link:hover {
+	color: #E74C3C;
+}
+.logo_link .last_name {
+    font-weight: 700;
+}
+div.breaker {
+    border-bottom: 1px solid #F2F2F2;
+    margin: 10px 0px;
+}
+.blog-down.skiplink {
+	background: none;
+}
+.blog-down.skiplink a {
+	background: none;
+    color: rgba(192, 57, 43, 0.7);
+    padding: 75px 0px;
+}
 #content-container {margin: 50px auto;}
 #portrait-container {text-align: center;}
 .breaker {margin: 10px 0 10px 0; border-bottom: 2px solid rgba(255,255,255,0.3);}
@@ -16,6 +75,21 @@ p {font-weight: 400; text-align: justify; margin: 5px 0 5px 0;}
 .links-to a:hover {color: #fff; opacity: 1;}
 .in-text {color: #fff; border-bottom: 1px rgba(255,255,255,0.5) dotted;}
 .in-text:hover {color: #fff; border-bottom: 1px rgba(255,255,255,1) dotted;}
+.blog-post-title {color: #c0392b; font-weight: 400; transition: all 0.4s ease 0s;}
+.blog-post-title:hover {
+	color: #e74c3c !important;
+	transition: all 0.4s ease 0s;
+}
+.blog-head-top {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-top: 60px;
+}
+.blog-head-sub {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 60px;
+}
 @media only screen and (max-width: 394px) {
 	#portrait-container img {max-width: 250px !important;}	
 }
