@@ -1,0 +1,146 @@
+<?php ob_start(); session_start(); ?>
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Cody Fitzpatrick - The Blog - How To: Virtual Memory Address Translation to Physical Memory Address</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link rel="shortcut icon" href="../../../../favicon.png" type="image/x-icon" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<link rel="stylesheet" href="../../../../css/gumby.css">
+	<link rel="stylesheet" href="../../../../css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,400italic,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body id="blog-post">
+
+<div class="navbar" id="nav1">
+	<div class="row">
+		<a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+		<h1 class="four columns logo">
+			<a href="../../../../index.html" title="Go to the Homepage" class="logo_link">Cody<span class="last_name">Fitzpatrick</span></a>
+		</h1>
+		<ul class="eight columns">
+			<li><a href="../../../../index.html" title="Go to the Homepage">HOME</a></li>
+			<li>
+				<a href="../../../../about-me.html" title="Learn More About Me">ABOUT</a>
+			</li>
+			<li><a href="../../../index.html" title="Visit my Blog">BLOG</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="nine columns">
+
+		<!-- BLOG CONTENT -->
+		<h3 class="blog-post-sp-title" title="How To: Virtual Memory Address Translation to Physical Memory Address">How To: Virtual Memory Address Translation to Physical Memory Address</h3>
+		<h6>Posted by Cody on August 28, 2015</h6>
+		<div class="breaker"></div>
+		<img src="img/Memory-Hierarchy-for-Virtual-to-Physical-Memory-Address-Translation-980x730.png"/>
+		<p class="slim">I’m studying for a final exam in a course titled Computer Organization and a portion of the content has to do with translating a virtual memory address to a physical address in memory. There’s not much useful information regarding this, so I thought I would provide the formulas to calculate the number of bits in the virtual page number, page offset; TLB index, tag, and data; L1 index, tag, data, and offset; the physical page number, and of course, the physical address. Please note that the following calculations are for a memory hierarchy of the following structure, the calculations can vary dependent on the structure.</p>
+		<p class="slim">For some calculations, there is more than one way of performing it. See the two formulas for Virtual Address and Page Offset below to see what I’m talking about.</p>
+		<ul>
+			<li><span class="bold">Virtual page number</span> = Virtual address – Page offset = the quotient of (Physical address ÷ 1024)</li>
+			<li><span class="bold">Page offset</span> = log2(Page size) = the remainder of (Physical address ÷ 1024)</li>
+			<li><span class="bold">TLB Index</span> = log2(TLB entries size/#-way associativity)</li>
+			<li><span class="bold">TLB Tag</span> = Virtual page number – TLB index</li>
+			<li><span class="bold">TLB data</span> = Physical address – L1 index – L1 offset</li>
+			<li><span class="bold">L1 index</span> = log2(Cache size/(Cache #-way associativity × Cache block size))</li>
+			<li><span class="bold">L1 tag</span> = Physical address – L1 index – Block offset</li>
+			<li><span class="bold">L1 data</span> = Block size × 8 bits/byte</li>
+			<li><span class="bold">L1 Offset</span> = log2(Block size)</li>
+			<li><span class="bold">Physical page number</span> = Physical address – Page offset</li>
+			<li><span class="bold">Physical address</span> = Physical page number + Page offset</li>
+		</ul>
+		<h4>Example:</h4>
+		<p class="slim">Cache access involves address translation, cache tag comparison, and cache data array access. Assume in particular processor architecture, the virtual and physical addresses have 51 and 40 bits respectively. The page size is 8 KB and the cache block size is 32 bytes. Assume that the TLB can record the recent 1K virtual to physical page address translation implemented with 8-way set-associative design. The L1 cache size is 32KB with 4-way set associative design. Note that the “Total size” in the diagram represents the total size of the entire tag or data array. Please compute the values (in bits) for the entries in the following figure that are shown in parenthesis. Here, 1K = 1024.</p>
+		<h4>Solutions:</h4>
+		<p class="slim"><span class="bold">Virtual Address:</span> 51 bits</p>
+		<p class="slim"><span class="bold">Page offset:</span> 13 bits</p>
+		<p class="slim"><span class="bold">Virtual Page number:</span> 51 – 13 = 38 bits</p>
+		<p class="slim"><span class="bold">Page offset:</span> 13 bits (found above)</p>
+		<p class="slim"><span class="bold">Physical page number:</span> 40-13 = 27 bits</p>
+		<p class="slim"><span class="bold">TLB Index:</span> log2(1K/8) = 7 bits</p>
+		<p class="slim"><span class="bold">TLB Tag:</span> 38–7 = 31 bits</p>
+		<p class="slim"><span class="bold">Total TLB Tag Size:</span> 31 × 1K = 31K bits = 3.875 KB</p>
+		<p class="slim"><span class="bold">TLB data:</span> 27 bits</p>
+		<p class="slim"><span class="bold">Total TLB data size:</span> 27 × 1K = 27K bits = 3.375 KB</p>
+		<p class="slim"><span class="bold">L1 index:</span> log2(32K/32/4) = 8 bits</p>
+		<p class="slim"><span class="bold">L1 offset:</span> 5 bits</p>
+		<p class="slim"><span class="bold">L1 Tag:</span> 40 – (8 + 5) = 27 bits</p>
+		<p class="slim"><span class="bold">Total L1 Tag Size:</span> 27 × 1K = 27K bits = 3.375 KB</p>
+		<p class="slim"><span class="bold">L1 data:</span> 32 bytes = 256 bits</p>
+		<p class="slim"><span class="bold">Total L1 data size:</span> 256 × 1K = 256K bits = 32 KB</p>
+
+	</div>
+	<div class="three columns">
+
+		<!-- BLOG SIDEBAR -->
+		<h5 class="text-center">Looking for something?</h5>
+		<div class="breaker"></div>
+		
+		<h5 class="as text-center">Popular Posts</h5>
+		<div class="text-center">
+			<p class="slim"><a href="../29/when-to-upgrade-your-apple-computers-ram-or-memory.html" title="When to Upgrade Your Apple Computer’s RAM or Memory">When to Upgrade Your Apple Computer’s RAM or Memory</a></p>
+			<div class="breaker"></div>
+		</div>
+
+		<div class="text-center">
+			<h5 class="as text-center">Recent Posts</h5>
+			<p class="slim"><a href="../29/when-to-upgrade-your-apple-computers-ram-or-memory.html" title="When to Upgrade Your Apple Computer’s RAM or Memory">When to Upgrade Your Apple Computer’s RAM or Memory</a></p>
+			<div class="breaker"></div>
+		</div>
+
+	</div>
+</div>
+
+<div class="blog-spacer"></div>
+
+<footer>
+	<div class="row">
+		<div class="centered twelve columns">
+			<p class="footer-text">Copyright &copy 2015 by Cody Fitzpatrick. All Rights Reserved.</p>
+		</div>
+	</div>
+</footer>
+
+	<script>
+	var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
+	if(!oldieCheck) {
+	document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
+	} else {
+	document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
+	}
+	</script>
+	<script>
+	if(!window.jQuery) {
+	if(!oldieCheck) {
+	  document.write('<script src="../../../js/libs/jquery-2.0.2.min.js"><\/script>');
+	} else {
+	  document.write('<script src="../../../js/libs/jquery-1.10.1.min.js"><\/script>');
+	}
+	}
+	</script>
+
+	<script src="../../../js/libs/modernizr-2.6.2.min.js"></script>
+	<script src="../../../js/libs/gumby.min.js"></script>
+	<script src="../../../js/plugins.js"></script>
+	<script src="../../../js/main.js"></script>
+	<script src="../../../analytics/ua.js"></script>
+
+  </body>
+</html>
