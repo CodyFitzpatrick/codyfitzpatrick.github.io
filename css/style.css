@@ -70,14 +70,18 @@ body#blog-post p, body#about-me p {
 .navbar ul li > a.active {
 	color: #E74C3C;
 }
+.navbar a.toggle, .navbar a.toggle:hover {
+	background: #fff;
+	color: #222;
+	margin-top: 6px;
+}
 footer {
 	padding: 20px 0px;
-	color: #A2A8AD;
 	background-color: #F7F7F7;
-	font-size: 13px;
 	margin-top: 30px;
 }
 .footer-text {
+	font-size: 15px !important;
 	color: #A2A8AD !important;
 	margin: 0 !important;
 }
@@ -109,7 +113,7 @@ div.breaker {
 .blog-down.skiplink a {
 	background: none;
     color: rgba(192, 57, 43, 0.7);
-    padding: 75px 0px;
+    padding: 50px 0px;
 }
 .blog-spacer {
     margin-top: 150px;
@@ -216,7 +220,11 @@ body#about-me .blog-head-top {
 @media only screen and (max-width: 394px) {
 	#portrait-container img {
 		max-width: 250px !important;
-	}	
+	}
+	.navbar a.logo_link {
+		font-size: 25px;
+		margin-top: 5px;
+	}
 }
 @media only screen and (max-width: 767px) {
 	#content-container {
@@ -227,5 +235,17 @@ body#about-me .blog-head-top {
 	}
 	#portrait-container img {
 		max-width: 300px;
+	}
+	.navbar ul.eight.columns.active {
+		margin-top: 21px;
+	}
+	#blog-sidebar {
+		margin-top: 30px;
+	}
+	#blog-sidebar p {
+		text-align: center;
+	}
+	.blog-spacer {
+		margin-top: 60px;
 	}
 }
